@@ -119,6 +119,7 @@ class Text_Image_Zho:
 
     def __init__(self):
         # - This is executed when the graph is executed, we could conditionaly reload fonts there
+        self.__class__.CACHE_FONTS()
         pass
 
     @classmethod
