@@ -6,15 +6,19 @@ import __main__
 
 
 python = sys.executable
+cwd = os.getcwd()
 
 
-extentions_folder = os.path.join(os.path.dirname(os.path.realpath(__main__.__file__)),
+# extentions_folder = os.path.join(os.path.dirname(os.path.realpath(__main__.__file__)),
+#                                  "web" + os.sep + "extensions" + os.sep + "ZHO")
+extentions_folder = os.path.join(f"{cwd}/content/ComfyUI/custom_nodes/ComfyUI-Text_Image-Composite",
                                  "web" + os.sep + "extensions" + os.sep + "ZHO")
-javascript_folder = os.path.join(os.path.dirname(os.path.realpath(__file__)), "mtb")
+# javascript_folder = os.path.join(os.path.dirname(os.path.realpath(__file__)), "mtb")
+javascript_folder = os.path.join(f"{cwd}/content/ComfyUI/custom_nodes/ComfyUI-Text_Image-Composite", "mtb")
 
 if not os.path.exists(extentions_folder):
     print('Making the "web\extensions\ZHO" folder')
-    os.mkdir(extentions_folder)
+    os.makedirs(extentions_folder)
 
 result = filecmp.dircmp(javascript_folder, extentions_folder)
 
